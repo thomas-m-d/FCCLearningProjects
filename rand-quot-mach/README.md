@@ -1,3 +1,7 @@
+# FCC Random Quote Machine Project
+For FreeCodeCamp's [Random Quote Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine) project.
+
+# CreateReactApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

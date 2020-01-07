@@ -1,3 +1,7 @@
+# FCC Choropleth Map Project
+For FreeCodeCamp's [Visualize Data with a Choropleth Map](https://www.freecodecamp.org/learn/data-visualization/data-visualization-projects/visualize-data-with-a-choropleth-map) project.
+
+# CreateReactApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,3 +1,7 @@
+# FCC Scatterplot Project
+For FreeCodeCamp's [Visualize Data with a Scatterplot](https://www.freecodecamp.org/learn/data-visualization/data-visualization-projects/visualize-data-with-a-scatterplot-graph) project.
+
+# CreateReactApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,3 +1,7 @@
+# FCC Bar Chart Project
+For FreeCodeCamp's [Visualize Data with a Bar Chart](https://www.freecodecamp.org/learn/data-visualization/data-visualization-projects/visualize-data-with-a-bar-chart) project.
+
+# CreateReactApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

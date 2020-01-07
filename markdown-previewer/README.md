@@ -1,3 +1,7 @@
+# FCC Markdown Previewer Project
+For FreeCodeCamp's [Markdown Previewer](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer) project.
+
+# CreateReactApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
