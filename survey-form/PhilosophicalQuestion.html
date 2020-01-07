@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html id="main">
+    <head>
+        <title>Developing a Philosophical Question</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body id="body">
+        <header></header>
+
+        <h1 id="title">Developing a Philosophical Question</h1>
+        <p id="description">This survey will walk you through the process of putting words to a philosophical question that has been concerning you recently. Survey results can be submitted for feedback from a trained representative.</p>
+
+        <br>
+
+        <form id="survey-form">
+            <br>
+            <label id="name-label" for="name">Name:
+                <input id="name" class="input input-field text-field" type="text" placeholder="Enter first and last name" required>
+            </label>
+
+            <br>
+
+            <label id="number-label" for="number">Age:
+                <input type="number" id="number" class="input input-field num-field" placeholder="Age (in years)" min="0" max="150" required>
+            </label>
+
+            <br>
+
+            <label for="concern-level">How concerned are you about your philosophical question?</label>
+            <div class="radio-div">
+                <input type="radio" id="concern-level-1" class="input input-list radio-list" name="concern-level" value="level-1">
+                <label for="concern-level-1">Not Concerned</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-level-2" class="input input-list radio-list" name="concern-level" value="level-2">
+                <label for="concern-level-2">Slightly Concerned</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-level-3" class="input input-list radio-list" name="concern-level" value="level-3">
+                <label for="concern-level-3">Normal Level of Concern</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-level-4" class="input input-list radio-list" name="concern-level" value="level-4">
+                <label for="concern-level-4">Pretty Concerned</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-level-5" class="input input-list radio-list" name="concern-level" value="level-5">
+                <label for="concern-level-5">Very Concerned</label>
+            </div>
+
+            <br>
+
+            <label for="concern-age">How long have you been concerned by your philosophical question?</label>
+            <div class="radio-div">
+                <input type="radio" id="concern-age-1" class="input input-list radio-list" name="concern-age" value="age-1">
+                <label for="concern-age-1">Less than one day</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-age-2" class="input input-list radio-list" name="concern-age" value="age-2">
+                <label for="concern-age-2">Between one day and one week</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-age-3" class="input input-list radio-list" name="concern-age" value="age-3">
+                <label for="concern-age-3">Between one week and one month</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-age-4" class="input input-list radio-list" name="concern-age" value="age-4">
+                <label for="concern-age-4">Between one month and one year</label>
+            </div>
+
+            <div class="radio-div">
+                <input type="radio" id="concern-age-5" class="input input-list radio-list" name="concern-age" value="age-5">
+                <label for="concern-age-5">More than one year</label>
+            </div>
+
+            <br>
+
+            <label for="prompt">What situations have been prompting this question?</label>
+            <textarea id="prompt" placeholder="Type your response here..."></textarea>
+
+            <br>
+
+            <label for="commonalities">What do these situations have in common?</label>
+            <textarea id="commonalities" placeholder="Type your response here..."></textarea>
+
+            <br>
+
+            <p>Check any of the following questions that have a close relation to your philosophical question.</p>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-1" class="input input-list check-list" name="question-checkbox" value="ontology">
+                <label for="question-checkbox-1" class="checkbox-label">What sorts of things exist? Where are they 'located'?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-2" class="input input-list check-list" name="question-checkbox" value="epistemology">
+                <label for="question-checkbox-2" class="checkbox-label">What do I know? How do I know it?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-3" class="input input-list check-list" name="question-checkbox" value="ethics">
+                <label for="question-checkbox-3" class="checkbox-label">What should I do? How does what I should do relate to what I do do?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-4" class="input input-list check-list" name="question-checkbox" value="politics1">
+                <label for="question-checkbox-4" class="checkbox-label">What types of authority are there? Which people or institutions should have this authority?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-5" class="input input-list check-list" name="question-checkbox" value="politics2">
+                <label for="question-checkbox-5" class="checkbox-label">What is the best way of organizing people into institutions? How do we put such organizing principles into action?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-6" class="input input-list check-list" name="question-checkbox" value="existentialism">
+                <label for="question-checkbox-6" class="checkbox-label">Which things have meaning of significance, and which things are meaningless or absurd? How do we relate to meaningful/meaningless things?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-7" class="input input-list check-list" name="question-checkbox" value="aesthetics">
+                <label for="question-checkbox-7" class="checkbox-label">What makes something a work of art? What value (if any) does art have?</label>
+            </div>
+            <div class="checkbox-div">
+                <input type="checkbox" id="question-checkbox-8" class="input input-list check-list" value="phil-sci" name="question-checkbox">
+                <label for="question-checkbox-8" class="checkbox-label">What makes something scientific? What does science tell us about ourselves and our place in the world?</label>
+            </div>
+
+            <br>
+
+            <label for="first-question">How would you formulate your philosophical question? (Suggestions: try to condense your response down to one grammatical sentence, and feel free to spend 5-10 minutes doing something unrelated before responding)</label>
+            <textarea id="first-question" placeholder="Type your response here..."></textarea>
+
+            <br>
+
+            <label for="critique">How would you criticize your formulation of your questions? Ask yourself whether there are aspects of your question that this formulation doesn't capture; whether any parts of this formulation are merely tangential to your question; whether certain words in your formulation are ambiguous or otherwise misguided; etc. (Suggestion: feel free to spend 5-10 minutes doing something unrelated before responding)</label>
+            <textarea id="critique" placeholder="Type your response here..."></textarea>
+
+            <br>
+
+            <label for="final-question">Given the criticisms of the first formulation of your question, how would you reformulate your question? (Suggestions: again, try to condense your response down to one grammatical sentence, and feel free to spend 5-10 minutes doing something unrelated before responding)</label>
+            <textarea id="final-question" placeholder="Type your response here..."></textarea>
+
+            <br>
+
+            <label id="email-label" for="email">Email:
+                <input type="email" id="email" class="input input-field email-field" placeholder="Enter email address" required>
+            </label>
+
+            <br>
+
+            <label for="dropdown">Can we contact you at this email?
+                <select id="dropdown">
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </label>
+
+            <br>
+
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </body>
+
+</html>

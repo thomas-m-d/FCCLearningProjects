@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+#chartDiv {
+  width: 75%;
+  height: 40em;
+  background-color: lightblue;
+  margin: 0 auto;
+}

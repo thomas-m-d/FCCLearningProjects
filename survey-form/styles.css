@@ -1,0 +1,85 @@
+:root {
+    /* Colors */
+    --backgroundColor: #bffbbf;
+    --textColor: #730000;
+    --accentColor: #84F59B;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    margin: 2em 10px 2em 10px;
+}
+
+header {
+    width: 80%;
+    height: 35vh;
+    margin-left: 10%;
+    background-image: url(Resources/phil-rap.jpg);
+    background-size: 100% 100%;
+    border-style: hidden;
+    box-shadow: 10px 10px 10px var(--accentColor), -10px -10px 20px var(--accentColor), -10px 10px 10px var(--accentColor), 10px -10px 10px var(--accentColor);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: .5ch;
+}
+
+form {
+    background-color: var(--accentColor);
+    border: 2px ridge var(--textColor);
+}
+
+label, p {
+    display: block;
+    margin: 5px 2vw 5px 2vw;
+    text-align: justify;
+}
+
+textarea {
+    display: block;
+    height: 10em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkbox-div, .radio-div {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1.5em;
+}
+
+.checkbox-div input, .radio-div input {
+    margin: 0px .75em .75ch 0px;
+}
+
+.checkbox-div label, .radio-div label {
+    margin: 0px 0px .75ch 0px;
+}
+
+.input-field, textarea {
+    background-color: var(--backgroundColor);
+}
+
+.num-field {
+    width: 14ch;
+}
+
+#submit {
+    display: block;
+    width: 10em;
+    height: 2em;
+    justify-content: center;
+    margin: .5em auto 1.5em auto;
+    font-size: large;
+    color: var(--textColor);
+}
+
+#dropdown {
+    display: inline;
+    background-color: var(--backgroundColor);
+    height: 1.75em;
+    color: var(--textColor);
+}

@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+#quote-box {
+    width: 60vw;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#text {
+    text-align: justify;
+}
+
+#author {
+    text-align: right;
+}
+
+#note {
+    width: 40%;
+    text-align: right;
+    margin-left: auto;
+}
+
+.indent {
+    margin-left: 4em;
+}
+
+#buttonDiv {
+    display: inline-block;
+}
+
+.tweet-quote {
+    margin-right: 1em;
+}
+
+.new-quote {
+    margin-left: 1em;
+}

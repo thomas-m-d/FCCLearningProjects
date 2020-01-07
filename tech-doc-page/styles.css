@@ -1,0 +1,99 @@
+:root {
+        /* Colors */
+        --navBackgroundColor: #e0929d;
+        --mainBackgroundColor: #f9dde1;
+        --codeBackgroundColor: #f0d6b6;
+        --textColor: #381010;
+        --accentColor: #c0c0dd;
+        --linkColor: #008b8b;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+    grid-template-areas: "nav main";
+    margin-top: 0;
+    background-color: var(--mainBackgroundColor);
+}
+
+#navbar {
+    grid-area: nav;
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 16%;
+    height: 100vh;
+    overflow: auto;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    background-color: var(--navBackgroundColor);
+}
+
+main {
+    grid-area: main;
+}
+
+.nav_header {
+    font-size: large;
+    margin-top: 6vh;
+    margin-bottom: .75em;
+}
+
+#nav-list {
+    margin-top: 0;
+    padding-left: 1.5vw;
+}
+
+.nav-link {
+    display: block;
+}
+
+.section_header {
+    font-size: x-large;
+    text-decoration: underline;
+    margin-top: 1.5em;
+}
+
+#first-header {
+    margin-top: 6vh;
+}
+
+p {
+    text-indent: 30px;
+    margin: .5em 0 .5em 0;
+    text-align: justify;
+}
+
+.first-p blockquote-p {
+    text-indent: 0;
+}
+
+h4 {
+    margin-bottom: .2em;
+}
+
+.term-list {
+    margin-top: .2em;
+}
+
+audio {
+    display: block;
+    margin: 1em auto 1em auto;
+}
+
+code {
+    margin-left: 5ch;
+    background-color: var(--codeBackgroundColor);
+}
+
+hr {
+    width: 65%;
+    margin: 1em auto 1em auto;
+}
+
+@media (min-width: 800px){
+    #navbar {
+        width: 128px;
+    }
+}

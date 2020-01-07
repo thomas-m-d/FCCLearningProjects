@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title id="title">Eurorack Synthesis for Programmers</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <nav id="navbar">
+            <header class="nav_header">Eurorack Synthesis for Programmers</header>
+            <ul id="nav-list">
+                <li><a href="#What_is_Eurorack?" class="nav-link">What is Eurorack?</a></li>
+                <li><a href="#Basic_Terminology" class="nav-link">Basic Terminology</a></li>
+                <li><a href="#Oscillators_and_Audio_Sources" class="nav-link">Oscillators and Audio Sources</a></li>
+                <li><a href="#Filters_and_Audio_Processing" class="nav-link">Filters and Audio Processing</a></li>
+                <li><a href="#Continuous_Control_Voltage" class="nav-link">Continuous Control Voltage</a></li>
+                <li><a href="#Discrete_Control_Voltage" class="nav-link">Discrete Control Voltage</a></li>
+                <li><a href="#Utilities" class="nav-link">Utilities</a></li>
+                <li><a href="#Putting_It_Together_with_Make_Noise_Maths" class="nav-link">Putting It Together with Make Noise Maths</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-doc">
+            <section id="What_is_Eurorack?" class="main-section">
+                <header id="first-header" class="section_header">What is Eurorack?</header>
+                <p class="first-p">Eurorack is a roughly standardized format for modular synthesizers. Modular synthesizers are a sort of electronic instrument, where synthesis functions are isolated into individual units (called modules). Different modules are then connected one to another by a user in order to achieve some larger purpose (called a patch). The goal of this document will be to walk a novice through some basic synthesis functions and their common roles within a patch, so more details to come.</p>
+                <p>In the world of modular synthesizers, a format is a set of physical and electronic characteristics that have been standardized in order to allow different modules to interface with one another.</p>
+                <p>The main physical characteristics that make up a standard include the size of a module and the type of jacks used in the module. The former allows different modules to be housed in a single enclosure, while the latter allows different modules to be connected with one type of cable (and without any adapters).</p>
+                <p>The main electrical characteristics that make up a standard include the power requirements of modules and the signal levels to be used at a module's inputs and outputs. The former allows different modules to be powered by a single power supply, while the latter allows different modules to be connected without the need of amplifiers, attenuators, and/or voltage offsets for every connection.</p>
+                <p>Eurorack is a relatively new format, being developed in the mid-1990s by Dieter Doepfer. There are four aspects of the eurorack format that are worth highlighting. First, the eurorack format stipulates relatively small physical dimensions, with modules being 5.25" (133.4mm) tall and with modules using 1/8" (3.5mm) phono jacks (like those used with earbuds). Second, in part because of their small physical size, eurorack modules often have a lower pricepoint than modules that offer similar functions in other formats. Third, there are many more manufacturers making eurorack modules than modules in different formats. This is in part because the low cost of eurorack modules means they are more accessible to hobbyists and require less money to manufacture. Finally, the eurorack format is in practice only roughly standardized across these manufactures. In particular, the normal operating levels of CV signals often vary between manufacturers.</p>
+                <p>For more details, see Doepfer's <a href="http://www.doepfer.de/a100_man/a100t_e.htm">'Technical Details'</a> page, as well as the 'Mechanical Details' page found under the 'Products' tab of Doepfer's <a href="http://www.doepfer.de/home_e.htm">Home Page</a>.</p>
+            </section>
+
+            <section id="Basic_Terminology" class="main-section">
+                <header class="section_header">Basic Terminology</header>
+                <p class="first-p">We've already introduced some eurorack-specific terminology, but it will be helpful to introduce some more. For most readers, it will be most productive to skim this section on first reading, and cross reference it as they move through this document</p>
+                <h4>The Really Basics:</h4>
+                <ul class="term-list">
+                    <li><strong><u>Synthesis</u></strong> is the activity of producing sounds through artificial (usually electronic) means. A <strong><u>synthesizer</u></strong> is any tool used for synthesis.</li>
+                    <li>A <strong><u>case</u></strong> is an enclosure designed to hold multiple modules together. Cases often include a built-in power supply.</li>
+                    <li>A <strong><u>module</u></strong> is an individual unit designed to perform one (set of related) synthesis function(s). Modules interface with each other to achieve some larger synthesis goal.</li>
+                    <li>A <strong><u>rack</u></strong> is a set of modules that have been installed in a case. Racks are usually arranged so that they function as a complete instrument, while modules are rarely designed to function as a complete instrument.</li>
+                    <li>A <strong><u>patch cable</u></strong> is a cable used to connect modules in a rack. In eurorack, these are 1/8" (3.5mm) mono TS cables.</li>
+                    <li>A <strong><u>patch in the concrete sense</u></strong> is a rack with modules that have been connected with patch cables in order to achieve some synthesis purpose. In this sense, a patch is destroyed when the patch cables are removed, and afterwards similar but non-identical patches can be created. A <strong><u>patch in the general sense</u></strong> is an idea outlining one way of connecting modules. In this sense, a patch is not destroyed when patch cables are removed and a single patch can be instantiated within a rack more than once. Taking one sense as the <strong><u>primary sense</u></strong> leads to drastically different understandings of modular synthesis. Under the concrete sense, modular synthesis is a personal, improvisational, meditative practice similar to jazz or the construction of sand mandalas. Under the general sense, it is a public, planned, performative practice similar to pop or rock. Either way, the activity of <strong><u>patching</u></strong> is the activity of creating a patch (in either sense) while connecting modules with patch cables.</li>
+                </ul>
+
+                <h4>Common Synthesis Terminology</h4>
+                <ul class="term-list">
+                    <li>The word <strong><u>'audio'</u></strong> or <strong><u>'audio-rate'</u></strong> refers to anything that has frequencies within the range of normal human hearing (20Hz-20kHz).</li>
+                    <li><strong><u>Modulation</u></strong> is the activity of changing some parameter on a module. Most knobs on a module allow a user to manually modulate a parameter, and many inputs allow a user to electronically modulate a parameter.</li>
+                    <li>A <strong><u>control voltage</u></strong> or <strong><u>CV</u></strong> is any electronic signal that is (or can be) used to control a parameter within a module. Often, CVs involve sub-audio signals, although audio-rate signals can also be used as CVs.</li>
+                    <li>An <strong><u>oscillator</u></strong> is anything that produces a repeating signal. A <strong><u>VCO</u></strong> is a voltage controlled oscillator, i.e. an oscillator whose parameters can be modulated using CV. Usually, VCOs are designed primarily to produce audio-rate signals. An <strong><u>LFO</u></strong> is a low frequency oscillator, i.e. an oscillator that produces sub-audio-rate signals.</li>
+                    <li>A <strong><u>filter</u></strong> is anything that changes the frequency content of a signal. The Bass, Mid, and Treble knobs on many stereos control filters which remove low, mid, and high frequences, repsectively. A <strong><u>VCF</u></strong> is a voltage controlled filter, i.e. a filter whose parameters can be modulated using CV. A <strong><u>LPF</u></strong> is a low-pass filter, i.e. a filter that removes high frequencies. A <strong><u>HPF</u></strong> is a high-pass filter, i.e. a filter that removes low frequencies. A <strong><u>BPF</u></strong> is a band-pass filter, i.e. a filter that removes the frequences lying outside of a specific range or band. A <strong><u>notch filter</u></strong> is a filter that removes the frequencies lying within a specific range. A <strong><u>multi-mode filter</u></strong> is any filter that combines LPF, HPF, BPF, or notch filter responses into one physical unit.</li>
+                    <li>A <strong><u>trigger</u></strong> is a quick, discrete signal. Triggers are usually milliseconds long, and in that time they go from a low voltage, to a high voltage, and back to a low voltage. Triggers are used to represent the instant in time when some event should occur.</li>
+                    <li>A <strong><u>gate</u></strong> is a discrete signal of arbitrary length. Gates start at a low voltage, jump to a high voltage, stay at that high voltage, then return to a low voltage. Gates are used to represent the range of times across which some event should be occuring.</li>
+                    <li>A <strong><u>clock signal</u></strong> or <strong><u>clock</u></strong> is a succession of regularly timed triggers or gates. Clocks are used to keep musical time using the same principle as a metronome.</li>
+                    <li>An <strong><u>attenuator</u></strong> is any device that reduces the level of a signal.</li>
+                    <li>An <strong><u>amplifier</u></strong> is any device that increases the level of a signal. A <strong><u>VCA</u></strong> is a voltage controlled amplifier, i.e. an amplifier whose parameters can be modulated using CV.</li>
+                    <li><strong><u></u></strong></li>
+                    <li><strong><u></u></strong></li>
+                    <li><strong><u></u></strong></li>
+                </ul>
+                <code></code>
+            </section>
+
+            <section id="Oscillators_and_Audio_Sources" class="main-section">
+                <header class="section_header">Oscillators and Audio Sources</header>
+                <p class="first-p">As mentioned in the <a href="#Basic_Terminology">Basic Terminology</a> section, an oscillator is anything that produces a repeating signal. Oscillator modules are probably the most fundamental modules in modular synthesis. This is because every sound is itself a signal that is composed of repeating sine waves of various frequencies and amplitudes. Without repeating signals, there is no sound.</p>
+                <p>Given this, we'll start our survey with the sine oscillator, which produces a signal corresponding to the following pseudo-code:</p>
+                <code>sinOsc = A * Math.sin(f*t);</code>
+                <p class="blockquote-p">Here, A is a constant for the amplitude of the oscillator. f is a constant that simplifies a lot of mathematical details relating to the frequency of the oscillator. Finally, t is a variable for time. As time passes, the familiar sine shape is produced for our variable sinOsc.</p>
+                <p>The audio sample below shows you what such an oscillator sounds like:</p>
+                <audio controls src="">Check audio support.</audio>
+                <p class="blockquote-p">Notice how simple and 'thin' it sounds. This is distinctive of the sine wave.</p>
+                <p>Another common oscillator type is the triangle wave oscillator, which produces a signal corresponding to the following pseudo-code:</p>
+                <pre><code>if (t%p < .5*p) triOsc = A * ((t%p) / (.5*p));
+else triOsc = -A * ((t%p-.5*p) / (.5*p)) + A;</code></pre>
+                <p class="blockquote-p">This pseudo-code is a good deal more complicated, so let's break it down. A and t represent amplitude and time like before. p represents the period of oscillation (again, simplifying some mathematical details). The if-else statement lets us use one formula for the first half of the oscillation and another for the second half. Finally, the two formulas provide us with a linear increase from 0 to A across the first half of the period, then a linear decrease from A to 0 across the second half. The result is a waveform with triangular-shaped cycles.</p>
+                <p>The audio sample below shows you what a triangle wave oscillator sounds like:</p>
+                <audio controls src="">Check audio support.</audio>
+                <p class="blockquote-p">Notice that it sounds a lot like the sine wave oscillator but a little 'fuller' or 'richer'. There is still one frequency dominating the sound, but now there are some additional frequencies starting to poke through</p>
+                <p>There are two more oscillator types worth mentioning before we start wrapping up this section. One is called a sawtooth wave, and corresponds to the following pseudo-code:</p>
+                <code>sawOsc = A * ((t%p) / p);</code>
+                <p class="blockquote-p">Again, A, p, and t represent amplitude, period, and time. The resulting signal is one that linearly increases from 0 to A, then instantaneously goes from A to 0. This is the characteristic shape of the cutting edge of most saws, hence the name sawtooth.</p>
+                <p>The audio sample below shows you what a sawtooth wave oscillator sounds like:</p>
+                <audio controls src="">Check audio support.</audio>
+                <p class="blockquote-p">Although of the same pitch, this sound is noticeably different than the ones that came before it. It is 'shrill' or 'buzzy' in a way that the others weren't. This is because the sawtooth wave has even more extra frequency content than the triangle wave.</p>
+                <p>The square wave oscillator is the last oscillator we'll look at. It produces a signal corresponding to the following pseudo-code:</p>
+                <pre><code>if (t%p < .5*p) sqrOsc = A;
+else sqrOsc = 0;</code></pre>
+                <p class="blockquote-p">Like with the triangle wave, we use an if-else statement to split the period in two. However, what happens in each half of the period is a good deal simpler now. For one half, the square wave takes its maximum value A, and for the other half it takes its minimum value 0.</p>
+                <p>Here's what it sounds like:</p>
+                <audio controls src="">Check audio support.</audio>
+                <p class="blockquote-p">Again, the difference between this sound and the sine or triangle oscillators is noticeable. However, now the sound is 'fat' or 'heavy' in a way the sawtooth wasn't.</p>
+                <hr>
+                <p>With all of this theory covered, the last thing to talk about is how this relates to eurorack modules. I've included a picture of the module I was using to create the audio samples so far. It is a VCO, and has a number of knobs and jacks. To orient yourself, notice the jacks with a blue background around them. These are the outputs of the module, and if you look closely you can see different shapes against the backgrounds that represent the different waveforms we have talked about (plus one we haven't). To record each the samples, I simply patched the relevant output into a mixer, then plugged the mixer into my recorder. As simple as that!</p>
+                <p>But what about all those other knobs and jacks? We'll return to them in more detail when we get to the <a href="#Continuous_Control_Voltage">Continuous Control Voltage</a> section. For now, the main things to note are that the big knob at the top and the medium-sized one to its right give us course- and fine-grain control over the frequency. The two other medium-sized knobs and the two jacks below them allow you to use CV to modulate the oscillator's frequency. Finally, the three small knobs and the two jacks below them perform functions we won't be talking about here.</p>
+                <p>This is a pattern that most basic eurorack oscillators follow. You have outputs for at least 2-3 different waveshapes, so one physical oscillator is really a few oscillators in one. In addition, you have manual and CV control over the frequency, and maybe a little extra functionality if you're lucky.</p>
+                <p>Some oscillator modules are more complicated than this. One common paradigm is for manufacturers to combine the circuitry of two basic oscillators into one physical module. You have the same sort of features you would with two separate oscillators, but also manual and/or CV controls for letting one oscillator modulate the frequency of the other. <a href="http://www.makenoisemusic.com/modules/dpo">Make Noise's DPO</a> is a popular example of this sort of module.
+                <p>Another way manufacturers complicate this basic oscillator pattern is by giving you more control over the shape of the waveform the oscillator produces. Some give you a digital database of different waveforms, and allow you to continuously move from one sound to another. This paradigm is called wavetable synthesis, and some popular modules that do this include <a href="http://www.industrialmusicelectronics.com/products/21">Industrial Music Electronics' Piston Honda</a> and <a href="http://synthtech.com/eurorack/E352/">Synthesis Technology's E352 Cloud Terrarium</a>. There are many other synthesis paradigms, and most are represented by at least one eurorack module, but we've said more than enough already.</p>
+            </section>
+
+            <section id="Filters_and_Audio_Processing" class="main-section">
+                <header class="section_header">Filters and Audio Processing</header>
+                <p></p>
+                <code></code>
+            </section>
+
+            <section id="Continuous_Control_Voltage" class="main-section">
+                <header class="section_header">Continuous Control Voltage</header>
+                <p></p>
+                <code></code>
+            </section>
+
+            <section id="Discrete_Control_Voltage" class="main-section">
+                <header class="section_header">Discrete Control Voltage</header>
+                <p></p>
+                <code></code>
+            </section>
+
+            <section id="Utilities" class="main-section">
+                <header class="section_header">Utilities</header>
+                <p></p>
+                <code></code>
+            </section>
+
+            <section id="Putting_It_Together_with_Make_Noise_Maths" class="main-section">
+                <header class="section_header">Putting It Together with Make Noise Maths</header>
+                <p></p>
+                <code></code>
+            </section>
+        </main>
+    </body>
+</html>

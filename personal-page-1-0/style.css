@@ -1,0 +1,329 @@
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+}
+
+:root {
+    /* Colors */
+    --navColor: #633352;
+    --navColorLight: #9f5083;
+    --navTextColor: #d8bdff;
+
+    --welcomeColor: #3a008c;
+
+    --projectColorDark: #3d036a;
+    --projectColor: #540494;
+    --projectColorLight: #6700b8;
+
+    --publicationColorDark: #000144;
+    --publicationColor: #03046a;
+    --publicationsColorLight: #020388;
+
+    --contactColor: #2e0115;
+    --contactColorLight: #570228;
+    --contactTextColor: #d8bdff;
+
+    --textColor: #ffa1df;
+    --textAccentColor: #b0719b;
+    --linkHoverColor: #24113d;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    height: 10vh;
+    min-height: 3.5em;
+    max-height: 4.25em;
+    background-color: var(--navColor);
+    border-top: 5px solid var(--navTextColor);
+    border-bottom: 5px solid var(--navTextColor);
+}
+
+#site-nav-p {
+    text-align: center;
+    color: var(--navTextColor);
+    font-size: large;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: bottom;
+    font-size: x-large;
+}
+
+.nav-link {
+    padding: 0 .5em 0 .5em;
+    margin: 0;
+    color: var(--navTextColor);
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: var(--navColorLight);
+}
+
+.section-header {
+    font-size: 350%;
+    text-align: center;
+    color: var(--textColor);
+}
+
+#welcome-section {
+    min-height: 100vh;
+    background-color: var(--welcomeColor);
+    color: var(--textAccentColor);
+}
+
+#hi {
+    font-size: 200%;
+    text-align: left;
+    padding-top: 15vh;
+}
+
+#name {
+    margin: .5em 0 .5em 0;
+}
+
+#titles-aligner {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#titles-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 200%;
+    margin-right: .75em;
+    margin-bottom: 1em;
+}
+
+.title {
+    margin: 0 0 .35ch 0;
+}
+
+#welcome-projects-transition-1 {
+    border: 1px solid var(--projectColorDark);
+}
+
+#welcome-projects-transition-2 {
+    border: 4px solid var(--welcomeColor);
+}
+
+#welcome-projects-transition-3 {
+    border: 2px solid var(--projectColorDark);
+}
+
+#welcome-projects-transition-4 {
+    border: 3px solid var(--welcomeColor);
+}
+
+#welcome-projects-transition-5 {
+    border: 3px solid var(--projectColorDark);
+}
+
+#welcome-projects-transition-6 {
+    border: 2px solid var(--welcomeColor);
+}
+
+#welcome-projects-transition-7 {
+    border: 4px solid var(--projectColorDark);
+}
+
+#welcome-projects-transition-8 {
+    border: 1px solid var(--welcomeColor);
+}
+
+#projects {
+    display: flex;
+    background-color: var(--projectColorDark);
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#projects-header {
+    width: 100%;
+    margin: .5em 0 .33em 0;
+}
+
+.project-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--projectColor);
+    width: 25%;
+    margin: 0 0 5ch 0;
+    padding: 0 3% 2% 3%;
+}
+
+.project-tile:hover {
+    background-color: var(--projectColorLight);
+}
+
+.project-name {
+    text-align: center;
+    font-size: large;
+    padding: 5% 0 3% 0;
+    color: var(--textAccentColor);
+}
+
+.project-image {
+    width: 100%;
+}
+
+#projects-publications-transition-1 {
+    border: 1px solid var(--publicationColorDark);
+}
+
+#projects-publications-transition-2 {
+    border: 4px solid var(--projectColorDark);
+}
+
+#projects-publications-transition-3 {
+    border: 2px solid var(--publicationColorDark);
+}
+
+#projects-publications-transition-4 {
+    border: 3px solid var(--projectColorDark);
+}
+
+#projects-publications-transition-5 {
+    border: 3px solid var(--publicationColorDark);
+}
+
+#projects-publications-transition-6 {
+    border: 2px solid var(--projectColorDark);
+}
+
+#projects-publications-transition-7 {
+    border: 4px solid var(--publicationColorDark);
+}
+
+#projects-publications-transition-8 {
+    border: 1px solid var(--projectColorDark);
+}
+
+#publications {
+    display: flex;
+    background-color: var(--publicationColorDark);
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#publications-header {
+    width: 100%;
+    margin: .5em 0 .33em 0;
+}
+
+.publication-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: var(--publicationColor);
+    width: 25%;
+    margin: 0 0 5ch 0;
+    padding: 0 3% 2% 3%;
+}
+
+.publication-tile:hover {
+    background-color: var(--publicationsColorLight);
+}
+
+.publication-name {
+    text-align: center;
+    font-size: large;
+    padding: 5% 0 3% 0;
+    color: var(--textAccentColor);
+}
+
+.publication-image {
+    width: 100%;
+}
+
+#publications-contact-transition-1 {
+    border: 1px solid var(--contactColor);
+}
+
+#publications-contact-transition-2 {
+    border: 4px solid var(--publicationColorDark);
+}
+
+#publications-contact-transition-3 {
+    border: 2px solid var(--contactColor);
+}
+
+#publications-contact-transition-4 {
+    border: 3px solid var(--publicationColorDark);
+}
+
+#publications-contact-transition-5 {
+    border: 3px solid var(--contactColor);
+}
+
+#publications-contact-transition-6 {
+    border: 2px solid var(--publicationColorDark);
+}
+
+#publications-contact-transition-7 {
+    border: 4px solid var(--contactColor);
+}
+
+#publications-contact-transition-8 {
+    border: 1px solid var(--publicationColorDark);
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--contactColor);
+    padding: 2em 0 2em 0;
+    min-height: 100vh;
+}
+
+#contact-p {
+    font-size: 350%;
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+#contact-list {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 0 10% 0;
+}
+
+.contact-link {
+    font-size: 200%;
+    text-decoration: none;
+    color: var(--contactTextColor);
+    border-radius: 5px;
+    padding: 0 .5em 0 .5em;
+    margin: 0;
+}
+
+.contact-link:hover {
+    background-color: var(--contactColorLight);
+}
+
+i {
+    font-size: smaller;
+}
