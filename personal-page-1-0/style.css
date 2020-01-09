@@ -327,3 +327,5 @@
 i {
     font-size: smaller;
 }
+
+@media (min-width: 800px) {}
