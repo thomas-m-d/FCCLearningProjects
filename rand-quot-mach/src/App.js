@@ -450,7 +450,6 @@ class Quotation extends React.Component {
   render() {
     return (
       <div id="quote-box">
-        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
         <div id="text">{quotes[this.state.quoteNum].text}</div>
         <br />
         <div id="author">{quotes[this.state.quoteNum].author}</div>
