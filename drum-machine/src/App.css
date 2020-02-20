@@ -1,0 +1,24 @@
+#drum-machine {
+	width: 100%;
+	margin: auto;
+	background-color: blue;
+}
+
+#pad-div {
+	margin: auto;
+	background-color: yellow;
+}
+
+.drum-pad {
+	/* width: max-content; */
+	margin: .5em auto .5em auto;
+	background-color: orange;
+	width: 3em;
+	height: 2em;
+	text-align: center;
+}
+
+#display {
+	text-align: center;
+	background-color: green;
+}
