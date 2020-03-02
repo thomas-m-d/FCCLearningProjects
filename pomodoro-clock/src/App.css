@@ -1,0 +1,20 @@
+#clock {
+	width: 100%;
+	margin: auto;
+	background-color: blue;
+}
+
+.break {
+	background-color: yellow;
+	text-align: center;
+}
+
+.timer {
+	background-color: cyan;
+	text-align: center;
+}
+
+.session {
+	background-color: magenta;
+	text-align: center;
+}
